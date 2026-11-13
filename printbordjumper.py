@@ -1,2 +1,3 @@
 import printbord
-print("jumper started")
+def print_start():
+    printbord.print_start()
