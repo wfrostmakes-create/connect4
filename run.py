@@ -1,6 +1,11 @@
 import printbordjumper
+import funintro
+import os
+
+'0000'
 
 board = {'A': [], 'B': [], 'C': [], 'D': [], 'E': [], 'F': [], 'G': []}
+funintro.print_intro()
 printbordjumper.print_start()
 printbordjumper.addnames()
 printbordjumper.print_bord(board)
@@ -23,7 +28,11 @@ while True:
         else:
             board[move].append('X')
             break
+    if check_win(board):
+        print("Player 1 wins!")
+        exit()
     # player 2 move
+    os.system('cls')
     printbordjumper.print_bord(board)
     retry = False
     while True:
@@ -41,4 +50,8 @@ while True:
         else:
             board[move].append('O')
             break
+    if check_win(board):
+        print("Player 2 wins!")
+        exit()
+    os.system('cls')
     
