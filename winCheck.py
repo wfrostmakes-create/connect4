@@ -32,9 +32,9 @@ def check_win(board):
                         else:
                             break
     # diagonal check
-    for col in ['A', 'B', 'C', 'D', 'E', 'F', 'G']:
-        for row in range(7):
-            if row < len(board[col]):
-                piece = board[col][row]
-                if piece == 'X':
-                    count = 1
+    # for col in ['A', 'B', 'C', 'D', 'E', 'F', 'G']:
+    #     for row in range(7):
+    #         if row < len(board[col]):
+    #             piece = board[col][row]
+    #             if piece == 'X':
+    #                 count = 1

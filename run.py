@@ -2,6 +2,8 @@ import printbordjumper
 import funintro
 import os
 
+import winCheck
+
 '0000'
 
 board = {'A': [], 'B': [], 'C': [], 'D': [], 'E': [], 'F': [], 'G': []}
@@ -28,7 +30,7 @@ while True:
         else:
             board[move].append('X')
             break
-    if check_win(board):
+    if winCheck.check_win(board):
         print("Player 1 wins!")
         exit()
     # player 2 move
@@ -50,7 +52,7 @@ while True:
         else:
             board[move].append('O')
             break
-    if check_win(board):
+    if winCheck.check_win(board):
         print("Player 2 wins!")
         exit()
     os.system('cls')
