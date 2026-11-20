@@ -42,4 +42,9 @@ def player_move(player, retry):
             print("Invalid move. Please try again.")
             continue
         return move,retry
+def print_winner(winner):
+    if winner == "Player 1":
+        print(f"Congratulations {player1}, you win!")
+    elif winner == "Player 2":
+        print(f"Congratulations {player2}, you win!")
         

@@ -1,6 +1,7 @@
 # win check code
 def check_win(board):
     # vertical check
+    # looks for repeats in the string
     for column in board:
         pieces = board[column]
         for i in range(len(pieces) - 3):
@@ -9,6 +10,7 @@ def check_win(board):
             elif pieces[i:i + 4] == ['O', 'O', 'O', 'O']:
                 return True
     # horizontal check
+    #looks for repeats with the sam spot
     for row in range(7):
         for col in ['A', 'B', 'C', 'D', 'E', 'F', 'G']:
             if row < len(board[col]):
@@ -32,9 +34,35 @@ def check_win(board):
                         else:
                             break
     # diagonal check
-    # for col in ['A', 'B', 'C', 'D', 'E', 'F', 'G']:
-    #     for row in range(7):
-    #         if row < len(board[col]):
-    #             piece = board[col][row]
-    #             if piece == 'X':
-    #                 count = 1
+    # left to right check
+    for col in ['A', 'B', 'C', 'D', 'E', 'F', 'G']:
+        for row in range(7):
+            if row < len(board[col]):
+                piece = board[col][row]
+                if piece == 'X':
+                    count = 1
+                    for i in range(1, 4):
+                        nextCol = chr(ord(col) + i)
+                        nextRow = row + i
+                        if nextCol in board and nextRow < len(board[nextCol]) and board[nextCol][nextRow] == 'X':
+                            count += 1
+                            if count == 4:
+                                return True
+                        else:
+                            break
+    # right to left check
+    for col in ['G', 'F', 'E', 'D', 'C', 'B', 'A']:
+        for row in range(7):
+            if row < len(board[col]):
+                piece = board[col][row]
+                if piece == 'X':
+                    count = 1
+                    for i in range(1, 4):
+                        nextCol = chr(ord(col) - i)
+                        nextRow = row + i
+                        if nextCol in board and nextRow < len(board[nextCol]) and board[nextCol][nextRow] == 'X':
+                            count += 1
+                            if count == 4:
+                                return True
+                        else:
+                            break

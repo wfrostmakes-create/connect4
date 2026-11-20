@@ -10,3 +10,5 @@ def print_bord(board):
 def player_move(player, retry):
     move, retry = printbord.player_move(player, retry)
     return move, retry
+def print_winner(winner):
+    printbord.print_winner(winner)
